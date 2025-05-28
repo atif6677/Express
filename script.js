@@ -1,14 +1,21 @@
 
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 
 
+function attachUser(req, res, next) {
+    req.user = "Guest"; 
+    next(); 
+}
 
-app.get('/', (req, res) => {
-console.log('Server is up and running on port 3000! Ready to handle requests.')
-  res.send('Hello, World! This is a simple Express server.')
-})
 
+app.get('/welcome', attachUser, (req, res) => {
+    
+    res.send(`<h1>Welcome, ${req.user}!</h1>`);
+});
 
-const port =3000
- app.listen(port)
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+    console.log(`Open your browser to http://localhost:${port}/welcome`);
+});
