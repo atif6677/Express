@@ -5,23 +5,30 @@ const port = 4000;
 
 app.use(express.json());
 
-app.get('/products/:username', (req, res) => {
-    const username = req.params.username;
-    const age = req.query.age;
-    const city = req.query.city;
+app.use((req, res, next) => {
+  console.log(`${req.method} request made to '${req.url}'`);
+  next();
+});
 
-    res.send(`Hello ${username}, welcome to the product page!, You are ${age} years old and live in ${city}.`);
+app.get('/products', (req, res) => {
+   
+    res.send(`Here is the list of all products.`);
 }
 );
-app.post('/products/:username', (req, res) => {
-    const username = req.params.username;
-    const age = req.query.age;
-    const city = req.query.city;
+app.post('/products', (req, res) => {
 
-    res.send(`Hello ${username}, welcome to the product page!, You are ${age} years old and live in ${city}.`);
+    res.send(`A new product has been added.`);
 }
 );
 
+
+app.get('/categories',(req,res)=>{
+    res.send('Here is the list of all categories.')
+})
+
+app.post('/categories',(req,res)=>{
+    res.send('A new category has been created.')
+})
 
 
 app.all('*', (req, res) => {
