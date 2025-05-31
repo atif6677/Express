@@ -1,12 +1,14 @@
 const express = require('express');
-const router = express.Router();    
+const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('User List');
-}); 
+    res.send('Here is the list of books!');
+});
 
 router.post('/', (req, res) => {
-    res.send('User Added');
-}); 
+    res.send('Book has been added!');
+});
+
+
 
 module.exports = router;
