@@ -2,7 +2,7 @@ const productService = require('../service/productService');
 
 const getProducts= (req, res) => { 
    const result = productService.getAllProducts();
-  res.send(result);
+  res.sendFile(result);
 }   
 
 const newProduct = (req, res) => {
