@@ -1,8 +1,8 @@
+const { get } = require('http');
 const path = require('path');
 
-const getAllProducts = () => {
-  
-  return (path.join(__dirname, '..', 'view', 'product.html'));
+const getFormPath = () => {
+  return path.join(__dirname, '..', 'views', 'product.html');
 };
 
 const getProductById = (id) => {
@@ -14,7 +14,7 @@ const addProduct = () => {
 };
 
 module.exports = {
-  getAllProducts,
+  getFormPath,
   getProductById,
   addProduct
 };

@@ -1,7 +1,7 @@
 const productService = require('../service/productService');
 
 const getProducts= (req, res) => { 
-   const result = productService.getAllProducts();
+   const result = productService.getFormPath();
   res.sendFile(result);
 }   
 
