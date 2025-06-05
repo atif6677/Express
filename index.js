@@ -8,8 +8,8 @@ const userRoutes = require('./routes/userRoutes.js')
 const productRoutes = require('./routes/productRoutes.js')    
 const cartRoutes = require('./routes/cartRoutes.js')
 
-
-
+app.use(express.static('public'));
+app.use(express.json());
 
 app.use('/users',userRoutes);    
 app.use('/products',productRoutes); 
